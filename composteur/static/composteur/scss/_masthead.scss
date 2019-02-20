@@ -1,27 +1,37 @@
+// Styling for the masthead
 header.masthead {
-  position: relative;
-  background-color: $gray-800;
-  background: url('../img/bg-masthead.jpg') no-repeat center center;
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 56px);
+  background-image: url('../img/header.jpg');
+  background-position: center center;
   @include background-cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-  .overlay {
-    position: absolute;
-    background-color: $gray-900;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.3;
+  hr {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   h1 {
     font-size: 2rem;
   }
+  p {
+    font-weight: 300;
+  }
   @media (min-width: 768px) {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    p {
+      font-size: 1.15rem;
+    }
+  }
+  @media (min-width: 992px) {
+    height: 100vh;
+    min-height: 650px;
+    padding-top: 0;
+    padding-bottom: 0;
     h1 {
       font-size: 3rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    h1 {
+      font-size: 4rem;
     }
   }
 }
