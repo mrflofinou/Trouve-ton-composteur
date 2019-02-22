@@ -21,7 +21,7 @@ from composteur import views
 
 urlpatterns = [
     re_path(r'^$', views.index, name='index'),
-    #re_path(r'^composteur/', include('composteur.urls')),
+    re_path(r'^composteur/', include('composteur.urls')),
     re_path(r'^admin/', admin.site.urls),
 ]
 
