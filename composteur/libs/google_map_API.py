@@ -16,7 +16,7 @@ class GoogleApiRequest:
             - name of the city
             - name of the country, etc...
         """
-        gmaps = googlemaps.Client(key="AIzaSyD_k6m62vaZwEHm-9GnCszNuSu6CTAuROg")
+        gmaps = googlemaps.Client(key="API_KEY")
         return gmaps.geocode(self.query)
 
     def get_coordinates(self):
