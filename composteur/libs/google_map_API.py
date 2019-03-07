@@ -1,9 +1,13 @@
 import googlemaps
 import json
 
+from .api_keys import google_apis
+
 
 class GoogleApiRequest:
     """ This class manage the request to the google APIs """
+
+    GEOCODE_API = google_apis["GEOCODE_API"]
 
     def __init__(self, query):
         self.query = query
@@ -16,7 +20,7 @@ class GoogleApiRequest:
             - name of the city
             - name of the country, etc...
         """
-        gmaps = googlemaps.Client(key="API_KEY")
+        gmaps = googlemaps.Client(key=self.GEOCODE_API)
         return gmaps.geocode(self.query)
 
     def get_coordinates(self):
