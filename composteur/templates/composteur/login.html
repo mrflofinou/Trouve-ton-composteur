@@ -1,0 +1,35 @@
+{% extends 'composteur/base.html' %}
+
+{% block title %}Connexion{% endblock  %}
+
+{% block header %}
+
+    {% include 'composteur/header.html' with title="Connexion" %}
+
+{% endblock  %}
+
+
+{% block content %}
+
+  <section>
+    <div class="container text-center">
+        
+        {% if form.errors %}
+            <p id="login_error" style="color: red; font-weight: bold">Le nom d'utilisateur et le mot de passe ne correspondent pas.</p>
+        {% endif %}
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group row">
+                    <label for="{{ field.label }}" class="offset-sm-3 col-sm-3 col-form-label">{{ field.label }} :</label>
+                    <div class="col-sm-6 text-left">
+                        {{ field }}
+                    </div>
+                </div>
+            {% endfor %}
+            <button class="btn btn-primary" id="submitlogin" type="submit">Connexion</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
