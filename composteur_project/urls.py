@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import re_path, include
 from django.conf import settings
+from django.contrib.auth import views as auth_views
 
 from composteur import views
 
@@ -23,6 +24,8 @@ urlpatterns = [
     re_path(r'^$', views.index, name='index'),
     re_path(r'^composteur/', include('composteur.urls', namespace="composteur")),
     re_path(r'^signup/$', views.signup, name="signup"),
+    re_path(r'^login/$', auth_views.LoginView.as_view(template_name="composteur/login.html"), name="login"),
+    re_path(r'^logout/$', auth_views.LogoutView.as_view(next_page="index"), name="logout"),
     re_path(r'^admin/', admin.site.urls),
 ]
 
